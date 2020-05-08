@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//go:def.bzl", "nogo")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["main.go"],
+    importpath = "github.com/dududko/nogo-panic-exampl",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_getkin_kin_openapi//openapi3:go_default_library"],
+)
+
+nogo(
+    name = "nogo",
+    config = "nogo.json",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@org_golang_x_tools//go/analysis/passes/nilness:go_tool_library",
+    ],
+)

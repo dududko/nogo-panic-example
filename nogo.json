@@ -1,0 +1,7 @@
+{
+  "nilness":  {
+    "exclude_files": {
+      "^.*/external/.*$": "external deps"
+    }
+  }
+}
